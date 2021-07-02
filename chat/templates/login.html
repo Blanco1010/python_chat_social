@@ -1,0 +1,42 @@
+{% from 'form_helper.html' import displayField %}
+
+{% extends 'prelogin-layout.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<div class="login-box">
+    <div class="login-logo">
+      <a href="../../index2.html"><b>Social</b>Chat</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
+      <div class="card-body login-card-body">
+        <h2>Iniciar sesion</h2>
+        <p>Entra tu nombre de usuario y contraseña para inciar</p>
+        
+        <form action="{{ url_for('login') }}" method="POST">
+            {{ displayField(form.username, 'Nombre de usuario', autocomplete="off",autofocus=true) }}
+        
+            {{ displayField(form.password, 'Contraseña') }}
+        
+            <div>
+                {{form.submit_button}}
+            </div>
+        
+            {{form.csrf_token}}
+        </form>
+        <!-- /.social-auth-links -->
+        <p class="mb-0">
+            <p>¿No estas registrado? <a href={{url_for('index')}}>Haz click aqui</a>.</p>
+        </p>
+      </div>
+    </div>
+  </div>
+
+<hr>
+
+
+
+{% endblock %}
